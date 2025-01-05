@@ -1,6 +1,7 @@
 import prisma from "@/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
 
+
 // Get single todo item
 export async function GET(
     { params }: { params: { id: string } }
