@@ -2,8 +2,11 @@
 
 import React, { useEffect, useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { Button } from './ui/button';
+import Link from 'next/link';
 
 interface TodoProps {
+    id: string;
     title: string;
     content: string;
 }
@@ -39,6 +42,16 @@ const TodoItemList = () => {
                                 {todo.content}
                             </p>
                         </CardContent>
+                        <div className="flex items-center justify-between">
+                            <Button variant={'destructive'}>
+                                Delete
+                            </Button>
+                            <Link href={`/${todo.id}`}>
+                                <Button>
+                                    Edit
+                                </Button>
+                            </Link>
+                        </div>
                     </CardHeader>
                 </Card>
             ))}
