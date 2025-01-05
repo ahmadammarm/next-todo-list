@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 // Get single todo item
 export async function GET(
+    request: NextRequest,
     { params }: { params: { id: string } }
 ) {
     try {
@@ -20,7 +21,7 @@ export async function GET(
 
 
 // Edit single todo item
-export async function UPDATE(request: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(request: NextRequest, { params }: { params: { id: string } }) {
     try {
         const body = await request.json()
         const todo = await prisma.todo.update({
@@ -43,6 +44,7 @@ export async function UPDATE(request: NextRequest, { params }: { params: { id: s
 
 // Delete Single Todo Item
 export async function DELETE(
+    request: NextRequest,
     { params }: { params: { id: string } }
 ) {
     try {
